@@ -1,9 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
-
 import * as actions from "./actions";
 
 import Header from "../../components/Header/index";

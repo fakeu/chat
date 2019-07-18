@@ -11,9 +11,11 @@ import {
   DELETE_MESSAGE
 } from "./actionTypes";
 
+import { url } from "../../helpers";
+
 export function* fetchMessages() {
   try {
-    const messages = yield call(axios.get, `http://localhost:3005/api/message`);
+    const messages = yield call(axios.get, `${url}/api/message`);
     yield put({
       type: FETCH_MESSAGES_SUCCESS,
       payload: { messages: messages.data, loading: false }
@@ -32,7 +34,7 @@ function* watchFetchMessages() {
 
 export function* fetchUsers() {
   try {
-    const users = yield call(axios.get, `http://localhost:3005/api/user`);
+    const users = yield call(axios.get, `${url}/api/user`);
     yield put({
       type: FETCH_USERS_SUCCESS,
       payload: { users: users.data, loading: false }
@@ -52,11 +54,7 @@ function* watchFetchUsers() {
 export function* addNewMessage(action) {
   const data = action.payload.data;
   try {
-    const messages = yield call(
-      axios.post,
-      `http://localhost:3005/api/message`,
-      data
-    );
+    const messages = yield call(axios.post, `${url}/api/message`, data);
 
     yield put({
       type: FETCH_MESSAGES_SUCCESS,
@@ -75,10 +73,7 @@ export function* deleteMessage(action) {
   const data = action.payload.data;
 
   try {
-    const messages = yield call(
-      axios.delete,
-      `http://localhost:3005/api/message/${data}`
-    );
+    const messages = yield call(axios.delete, `${url}/api/message/${data}`);
 
     yield put({
       type: FETCH_MESSAGES_SUCCESS,

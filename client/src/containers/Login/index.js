@@ -1,9 +1,6 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { bindActionCreators } from "redux";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
-
 import * as actions from "./actions";
 
 class Login extends React.Component {
@@ -37,7 +34,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { auth, user } = this.props;
+    const { auth } = this.props;
 
     return (
       <div>
@@ -66,10 +63,6 @@ class Login extends React.Component {
     );
   }
 }
-
-Login.propTypes = {};
-
-Login.defaultProps = {};
 
 const mapStateToProps = rootState => ({
   auth: rootState.auth.auth,

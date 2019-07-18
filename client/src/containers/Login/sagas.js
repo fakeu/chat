@@ -2,14 +2,12 @@ import axios from "axios";
 import { call, put, takeEvery, all } from "redux-saga/effects";
 import { LOGIN_USER, LOGIN_USER_SUCCESS, IS_USER_LOGIN } from "./actionTypes";
 
+import { url } from "../../helpers";
+
 export function* loginUser(action) {
   const data = action.payload.data;
   try {
-    const status = yield call(
-      axios.post,
-      `http://localhost:3005/auth/login`,
-      data
-    );
+    const status = yield call(axios.post, `${url}/auth/login`, data);
     localStorage.setItem("token", status.data.token);
     localStorage.setItem("login", status.data.login);
     yield put({
@@ -25,15 +23,12 @@ function* watchLoginUser() {
   yield takeEvery(LOGIN_USER, loginUser);
 }
 
-export function* isLoggin(action) {
+export function* isLoggin() {
   const token = localStorage.getItem("token");
   const user = localStorage.getItem("login");
   const status = token ? true : false;
   try {
-    const currentUser = yield call(
-      axios.get,
-      `http://localhost:3005/api/user/${user}`
-    );
+    const currentUser = yield call(axios.get, `${url}/api/user/${user}`);
     yield put({
       type: LOGIN_USER_SUCCESS,
       payload: { auth: status, user: currentUser.data }

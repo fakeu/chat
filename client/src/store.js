@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import { connectRouter, routerMiddleware } from "connected-react-router";
 import { composeWithDevTools } from "redux-devtools-extension";
 

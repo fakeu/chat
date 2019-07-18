@@ -8,3 +8,5 @@ export const idGenerator = () => {
   const max = 9999999999999;
   return Math.floor(Math.random() * (max - min)) + min;
 };
+
+export const url = "http://localhost:3005";

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import "./style.css";
 
-function Header(props) {
+const Header = props => {
   const { name, usersCount, msgCount, lastMsg, admin } = props;
 
   const logout = () => {
@@ -32,6 +32,6 @@ function Header(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Header;

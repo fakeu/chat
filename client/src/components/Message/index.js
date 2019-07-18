@@ -36,8 +36,7 @@ class Message extends React.Component {
       message,
       user,
       self,
-      onDeleteMessage,
-      onOpenModal
+      onDeleteMessage
     } = this.props;
     return (
       <div className={self ? "message message-self" : "message"}>
