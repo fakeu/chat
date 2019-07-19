@@ -36,7 +36,8 @@ class Message extends React.Component {
       message,
       user,
       self,
-      onDeleteMessage
+      onDeleteMessage,
+      admin
     } = this.props;
     return (
       <div className={self ? "message message-self" : "message"}>
@@ -50,7 +51,7 @@ class Message extends React.Component {
           <div className="message-text">{message}</div>
           <i className="message-time">{created_at}</i>
           <br />
-          {self ? (
+          {self || admin ? (
             <div>
               <button
                 onClick={() => {

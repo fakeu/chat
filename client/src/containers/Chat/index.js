@@ -76,6 +76,7 @@ class Chat extends React.Component {
                       user={msg.user}
                       self={self}
                       onDeleteMessage={this.deleteMessage}
+                      admin={this.props.user.admin}
                     />
                   );
                 })}
