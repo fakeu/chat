@@ -24,10 +24,6 @@ class Chat extends React.Component {
     this.props.fetchUsers();
   }
 
-  deleteMessage(id) {
-    this.props.deleteMessage(id);
-  }
-
   sendMessage(text) {
     const { user } = this.props;
     const message = {
@@ -40,6 +36,10 @@ class Chat extends React.Component {
       marked_read: false
     };
     this.props.addMessage(message);
+  }
+
+  deleteMessage(id) {
+    this.props.deleteMessage(id);
   }
 
   render() {
@@ -99,10 +99,6 @@ class Chat extends React.Component {
     );
   }
 }
-
-Chat.propTypes = {};
-
-Chat.defaultProps = {};
 
 const mapStateToProps = rootState => ({
   messages: rootState.chat.messages,

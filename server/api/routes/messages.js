@@ -26,7 +26,7 @@ router
       msg.id === req.body.id ? Object.assign(msg, req.body) : false;
     });
     fs.writeFileSync("./data/messages.json", JSON.stringify(jsonFileObject));
-    res.json({ status: "updated" });
+    res.json(jsonFileObject);
   })
 
   .delete("/:id", (req, res) => {

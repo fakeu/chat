@@ -7,6 +7,7 @@ import rootSaga from "./sagas/index"; //NEW
 
 import chat from "./containers/Chat/reducer";
 import auth from "./containers/Login/reducer";
+import edit from "./containers/EditMessage/reducer";
 
 import { createBrowserHistory } from "history";
 
@@ -21,8 +22,9 @@ const middlewares = [sagaMiddleware, routerMiddleware(history)];
 const composedEnhancers = composeWithDevTools(applyMiddleware(...middlewares));
 
 const reducers = {
-  chat: chat,
-  auth: auth
+  chat,
+  auth,
+  edit
 };
 
 const rootReducer = combineReducers({
